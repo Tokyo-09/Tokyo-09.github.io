@@ -18,6 +18,7 @@ concurrency:
 defaults:
   run:
     shell: bash
+    working-directory: Tokyo-09
 
 jobs:
   build:
@@ -46,6 +47,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
+          cache-dependency-path: Tokyo-09/package-lock.json
 
       - name: Setup GitHub Pages
         id: pages
@@ -80,8 +82,10 @@ jobs:
         run: |
           if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ]; then
             npm ci
-          else
+          elif [ -f package.json ]; then
             npm install
+          else
+            echo "No Node.js dependencies found. Skipping npm install."
           fi
 
       - name: Configure Git
@@ -102,13 +106,12 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/" \
-            --cacheDir "${{ runner.temp }}/hugo_cache" \
-            --source "Tokyo-09"
+            --cacheDir "${{ runner.temp }}/hugo_cache"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: Tokyo-09/public
+          path: public
 
   deploy:
     environment:
