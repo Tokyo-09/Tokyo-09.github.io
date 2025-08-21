@@ -1,0 +1,52 @@
+baseURL = 'https://tokyo-09.github.io/'
+languageCode = 'en'
+# languageCode = 'zh-CN'
+theme = "JuiceBar"
+title = "Tokyo-09's Blog"
+
+[params]
+author = "Tokyo-09"
+description = "My site description"
+authorImage = "/images/profile.jpg"
+paginate = 5
+
+Title = "Tokyo-09"
+content = "Hallo(ˊ˘ˋ*)♡"
+imageUrl = "/images/profile.jpg"
+# To add a new social icon (More social icons can be found in JuiceBar\layouts\partials\svg.html.)
+[[params.social]]
+name = "Github"
+url = "https://github.com/Tokyo-09"
+[[params.social]]
+name = "twitter"
+url = "https://twitter.com/@Tokyo_0412331"
+[[params.social]]
+name = "email"
+url = "mailto:Unit-09@proton.me"
+
+[taxonomies]
+category = "categories"
+
+# To add a new navigation link
+[[menu.main]]
+name = "About"
+url = "/about"
+[[menu.main]]
+name = "Blog"
+url = "/post"
+
+[params.giscus]
+repo = "hotjuicew/blog"
+repoID = "R_kgDOHHQOuw"
+category = "Announcements"
+categoryID = "DIC_kwDOHHQOu84CWCQ3"
+mapping = "og:title"
+reactionsEnabled = "1"
+emitMetadata = "0"
+inputPosition = "bottom"
+lang = "en"
+loading = "lazy"
+
+# Used for outputting the documentation (required).
+[outputs]
+home = ["HTML", "RSS", "JSON"]
