@@ -1,5 +1,5 @@
 ---
-title: "Self Reliance"
+title: "SPIRE: Building antivirus using rust Part: 1"
 date: 2023-02-18T22:19:13+08:00
 categories: ["Essay"]
 ---
