@@ -8,6 +8,7 @@ title = "Tokyo-09's Blog"
 author = "Tokyo-09"
 description = "My site description"
 authorImage = "/images/profile.jpg"
+favicon = "images/favicon.ico"
 paginate = 5
 
 Title = "Tokyo-09"
