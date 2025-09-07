@@ -3,54 +3,51 @@ title: "SPIRE: Building antivirus using rust Part: 1"
 categories: ["Spire"]
 ---
 
-# Intro
+# Introduction
 
-The project can be found here on my [GitHub](https://github.com/Tokyo-09/spire)
+The SPIRE project is hosted on my [GitHub repository](https://github.com/Tokyo-09/spire).
 
 ![Spire Logo](/spire.jpeg)
-Spire is being developed as a malware protection solution for both Linux and Windows, designed to protect end users from known malware and threats.
 
-## Why's
+SPIRE is being developed as a robust malware protection solution for both Linux and Windows, aimed at safeguarding end users from known malware and threats.
 
-* **Why this project exist?** -- Initially, I intended to develop my own firewall to deepen my understanding of the Rust programming language. While researching relevant materials, I frequently encountered publications from antivirus companies, which sparked significant interest. This inspired me to shift my focus and begin developing my own antivirus software. Given the limited number of resources and projects on this topic available on GitHub and across the internet, I decided to contribute to this field by creating my own solution.
-* **Why choose rust?** -- As noted earlier, my initial goal was to gain a deeper understanding of the Rust programming language.
-* **Why don't build everything with rust?** --Despite the advantages of the Rust programming language, developing full-fledged graphical user interface (GUI) applications with it currently presents certain challenges. Consequently, I chose Python for developing the user interface due to its simplicity and ease of use. For the server-side development, I opted for Go, as it is more convenient and better suited to my needs.
+## Motivation
 
-# Project plan
+- **Purpose of the Project**: Initially, my goal was to create a firewall to deepen my understanding of the Rust programming language. While exploring relevant resources, I frequently encountered publications from antivirus companies, which piqued my interest. This led me to pivot towards developing my own antivirus software. Given the scarcity of open-source projects and resources on this topic on GitHub and elsewhere, I decided to contribute to this domain by building a novel solution.
+- **Choice of Rust**: My primary objective was to enhance my proficiency in the Rust programming language, known for its performance and safety features.
+- **Use of Multiple Languages**: While Rust offers significant advantages, creating comprehensive graphical user interface (GUI) applications with it currently poses challenges. Consequently, I selected Python for developing the user interface due to its simplicity and accessibility. For server-side development, I chose Go for its efficiency and suitability for my requirements.
 
-The project is still under active development, with continuous changes and updates. You can track my progress on my [GitHub Kanban board](https://github.com/users/Tokyo-09/projects/2), where all details are thoroughly documented and described, or refer to the list below.
+# Project Roadmap
 
-## Features
+SPIRE is under active development, with ongoing updates and refinements. Progress can be tracked via my [GitHub Kanban board](https://github.com/users/Tokyo-09/projects/2), where all tasks are meticulously documented, or through the detailed feature list below.
 
+## Planned Features
 
-**Client**
+### Client
+- [ ] Transmit suspicious files to the server for detailed analysis
+- [ ] Log activities, collect system data, and send it to the server
+- [ ] Enable automatic database updates from the server
+- [ ] Implement configuration management
+- ...
 
- * [ ] Send suspicious files to the server for further analysis
- * [ ] Log activities, collect data, and transmit it to the server
- * [ ] Automatically update the database from the server
- * [ ] Configuration management
-...
+### Core
+- [ ] Scan specified directories for threats
+- [ ] Perform scans using YARA rules
+- [ ] Conduct behavioral analysis of files
+- [ ] Enable real-time monitor mode
+- [ ] Implement TCP/IP filtering for malicious hosts and ports
+- [ ] Scan newly created files on disk for static Indicators of Compromise (IOCs)
+- [ ] Analyze newly created files for Import Address Table (IAT) patterns
+- [ ] Execute files in a sandbox upon detection of an executable launching from the kernel
+- ...
 
-**Core**
-* [ ] Scan specified directories
-* [ ] Scan using YARA rules
-* [ ] Behavioral analysis
-* [ ] Monitor mode
-* [ ] TCP/IP filtering for malicious hosts/ports
-* [ ] Scan each newly created file on disk for static Indicators of Compromise (IOCs)
-* [ ] Scan each newly created file on disk for Import Address Table analysis
-* [ ] Execute files in a sandbox upon detection of an executable launching from the kernel
-...
+### Server
+- [ ] Develop cloud-based file scanning capabilities
+- [ ] Create a basic website and API for the application
+- ...
 
-Server
+# Conclusion
 
-* [ ] Cloud-based file scanning
-* [ ] Develop a basic website and API for the application
-...
+I am highly enthusiastic about the potential of the SPIRE project, as the field of antivirus protection captivates my interest, and I am committed to its continued development. This blog serves to document the development process comprehensively, capturing both the progress made and the challenges encountered.
 
-
-# Final thoughts
-
-I have high expectations for this project, as the topic of antivirus protection greatly interests me, and I plan to continue its development. This blog is intended to document all stages of the development process and to describe the challenges I encounter or may encounter along the way.
-
-If you are reading this and have any suggestions, please feel free to contact me via Twitter or GitHub!
+If you have any suggestions or feedback, please feel free to reach out to me via [Twitter](https://twitter.com/yourusername) or [GitHub](https://github.com/Tokyo-09).⏎
