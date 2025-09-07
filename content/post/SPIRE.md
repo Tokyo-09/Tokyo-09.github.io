@@ -1,5 +1,6 @@
 ---
 title: "SPIRE: Building antivirus using rust Part: 1"
+date: "2025-09-07"
 categories: ["Spire"]
 ---
 
@@ -15,7 +16,7 @@ SPIRE is being developed as a robust malware protection solution for both Linux 
 
 - **Purpose of the Project**: Initially, my goal was to create a firewall to deepen my understanding of the Rust programming language. While exploring relevant resources, I frequently encountered publications from antivirus companies, which piqued my interest. This led me to pivot towards developing my own antivirus software. Given the scarcity of open-source projects and resources on this topic on GitHub and elsewhere, I decided to contribute to this domain by building a novel solution.
 - **Choice of Rust**: My primary objective was to enhance my proficiency in the Rust programming language, known for its performance and safety features.
-- **Use of Multiple Languages**: While Rust offers significant advantages, creating comprehensive graphical user interface (GUI) applications with it currently poses challenges. Consequently, I selected Python for developing the user interface due to its simplicity and accessibility. For server-side development, I chose Go for its efficiency and suitability for my requirements.
+- **Use of Multiple Languages** : While Rust offers significant advantages, creating comprehensive graphical user interface (GUI) applications with it currently poses challenges. Consequently, I selected Python for developing the user interface due to its simplicity and accessibility. For server-side development, I chose Go for its efficiency and suitability for my requirements.
 
 # Project Roadmap
 
