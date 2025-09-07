@@ -24,26 +24,26 @@ SPIRE is under active development, with ongoing updates and refinements. Progres
 ## Planned Features
 
 ### Client
-[ ] Transmit suspicious files to the server for detailed analysis
-[ ] Log activities, collect system data, and send it to the server
-[ ] Enable automatic database updates from the server
-[ ] Implement configuration management
+1. Transmit suspicious files to the server for detailed analysis [  ]
+2. Log activities, collect system data, and send it to the server [  ]
+3. Enable automatic database updates from the server [  ]
+4. Implement configuration management [  ]
 ...
 
 ### Core
-[ ] Scan specified directories for threats
-[ ] Perform scans using YARA rules
-[ ] Conduct behavioral analysis of files
-[ ] Enable real-time monitor mode
-[ ] Implement TCP/IP filtering for malicious hosts and ports
-[ ] Scan newly created files on disk for static Indicators of Compromise (IOCs)
-[ ] Analyze newly created files for Import Address Table (IAT) patterns
-[ ] Execute files in a sandbox upon detection of an executable launching from the kernel
+1. Scan specified directories for threats [ X ]
+2. Perform scans using YARA rules [ X ]
+3. Conduct behavioral analysis of files [  ]
+4. Enable real-time monitor mode [  ]
+5. Implement TCP/IP filtering for malicious hosts and ports [  ]
+6. Scan newly created files on disk for static Indicators of Compromise (IOCs) [  ]
+7. Analyze newly created files for Import Address Table (IAT) patterns [  ]
+8. Execute files in a sandbox upon detection of an executable launching from the kernel [  ]
 ...
 
 ### Server
-[ ] Develop cloud-based file scanning capabilities
-[ ] Create a basic website and API for the application
+1.  Develop cloud-based file scanning capabilities [  ]
+2.  Create a basic website and API for the application [  ]
 ...
 
 # Conclusion
