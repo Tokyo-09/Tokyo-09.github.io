@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo09 · security engineer</title>
+    <style>
+        /* ---------- RESET / BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafafa;
+            color: #1e1e2f;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* ---------- TYPOGRAPHY ---------- */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin: 2.5rem 0 1rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.3rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #3a4a6b;
+            margin: 0.5rem 0 1rem;
+        }
+
+        a {
+            color: #1e1e2f;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+
+        a:hover {
+            border-bottom: 2px solid #1e1e2f;
+        }
+
+        /* ---------- HEADER / BIO ---------- */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background: #1e1e2f;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .bio {
+            flex: 1;
+        }
+
+        .bio p {
+            font-size: 1.1rem;
+            max-width: 650px;
+        }
+
+        .contact-links {
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            font-weight: 500;
+            border-bottom: none;
+        }
+
+        /* ---------- PROJECT CARDS ---------- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #eee;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: #b0b0d0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .project-title {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-title h3 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .status {
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            background: #1e1e2f;
+            color: white;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        .status.oss {
+            background: #2b4b3c;
+        }
+
+        .project-desc {
+            margin: 0.8rem 0 1rem;
+            color: #333;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .tech-tag {
+            background: #eef2f6;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            color: #1e1e2f;
+            border: 1px solid #dde2e8;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* ---------- SKILLS / TOOLS ---------- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .skill-category {
+            flex: 1 1 200px;
+        }
+
+        .skill-category h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            background: white;
+            border: 1px solid #dde2e8;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* ---------- EDUCATION / CERTIFICATIONS ---------- */
+        .list-block {
+            list-style: none;
+        }
+
+        .list-block li {
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #ccc;
+        }
+
+        .list-block li strong {
+            font-weight: 600;
+        }
+
+        .list-block li .date {
+            color: #5a6a7a;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
+        /* ---------- FOOTER ---------- */
+        .footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #5a6a7a;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #1e1e2f;
+        }
+
+        /* ---------- UTILS ---------- */
+        .mono {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .header { flex-direction: column; align-items: start; }
+            .project-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="avatar">T9</div>
+            <div class="bio">
+                <h1>Tokyo09</h1>
+                <div class="subhead">Security Engineer · Red Team & Malware Analysis</div>
+                <p>
+                    I'm a cybersecurity student and open‑source developer focused on low‑level systems,
+                    application security, and applied cryptography. I build tools like
+                    <a href="https://github.com/Tokyo-09/SpireAV-OSS" target="_blank">SpireAV‑OSS</a> to solve
+                    real problems, and spend my free time on Bug Bounty programs (Standoff 365, BI.ZONE, HackerOne)
+                    and CTFs. I’m looking for an internship or junior role where I can develop further in
+                    Red Teaming, Malware Analysis, AppSec or Reverse Engineering.
+                </p>
+                <div class="contact-links">
+                    <a href="https://github.com/Tokyo-09" target="_blank">GitHub</a>
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Blog (soon)</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <!-- SpireAV-OSS -->
+            <div class="project-card">
+                <div class="project-title">
+                    <h3>SpireAV-OSS</h3>
+                    <span class="status oss">open source</span>
+                </div>
+                <p class="project-desc">
+                    <strong>A real‑time antivirus engine built in Rust.</strong> Cross‑platform POC combining
+                    YARA‑based static analysis, heuristic detection, and real‑time filesystem monitoring.
+                    Scans for known malware signatures, isolates threats into a custom quarantine, and uses
+                    gRPC for component communication. Successfully detects common trojans and test samples.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">rust</span>
+                    <span class="tech-tag">yara</span>
+                    <span class="tech-tag">gRPC</span>
+                    <span class="tech-tag">real‑time</span>
+                    <span class="tech-tag">filesystem</span>
+                </div>
+                <a class="project-link" href="https://github.com/Tokyo-09/SpireAV-OSS" target="_blank">View on GitHub →</a>
+            </div>
+
+            <!-- Zero-Knowledge Identity Protocol -->
+            <div class="project-card">
+                <div class="project-title">
+                    <h3>ZK Identity Protocol</h3>
+                    <span class="status oss">academic</span>
+                </div>
+                <p class="project-desc">
+                    <strong>Privacy‑preserving identity verification using zero‑knowledge proofs.</strong>
+                    A protocol that allows a prover to confirm personal information (age, name, etc.)
+                    without revealing the underlying data. Minimises leakage risks – only the individual
+                    holds their original information. Implemented as part of my diploma thesis.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">cryptography</span>
+                    <span class="tech-tag">zero‑knowledge</span>
+                    <span class="tech-tag">rust</span>
+                    <span class="tech-tag">go</span>
+                </div>
+                <a class="project-link" href="#" target="_blank">Details on request →</a>
+            </div>
+        </div>
+
+        <!-- Bug Bounty / Tools (optional mini section) -->
+        <h3 style="margin-top: 1rem;">Also hacking on</h3>
+        <p style="margin-bottom: 1rem;">
+            Bug Bounty (Standoff 365, BI.ZONE, HackerOne) · custom CTF tools ·
+            malware analysis labs · reverse engineering challenges.
+        </p>
+
+        <!-- SKILLS & TOOLS -->
+        <h2>Skills & tools</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h4>Languages</h4>
+                <div class="skill-items">
+                    <span class="skill-item">Rust</span>
+                    <span class="skill-item">Go</span>
+                    <span class="skill-item">Bash</span>
+                    <span class="skill-item">Python</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Security</h4>
+                <div class="skill-items">
+                    <span class="skill-item">Wireshark</span>
+                    <span class="skill-item">nmap</span>
+                    <span class="skill-item">Metasploit</span>
+                    <span class="skill-item">IDA Pro</span>
+                    <span class="skill-item">Wazuh SIEM</span>
+                    <span class="skill-item">BloodHound</span>
+                    <span class="skill-item">Snort</span>
+                    <span class="skill-item">YARA</span>
+                    <span class="skill-item">SonarQube</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h4>Platforms & DevOps</h4>
+                <div class="skill-items">
+                    <span class="skill-item">Linux</span>
+                    <span class="skill-item">Git</span>
+                    <span class="skill-item">Docker</span>
+                    <span class="skill-item">Kubernetes</span>
+                    <span class="skill-item">gRPC</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATION & CERTIFICATIONS -->
+        <h2>Education & certifications</h2>
+        <ul class="list-block">
+            <li>
+                <strong>ITHub College, Moscow</strong> — <em>Information Security of Automated Systems</em>
+                <span class="date">2021–2026</span><br>
+                Diploma thesis: Zero‑knowledge identity protocol (age/name verification without data disclosure)
+            </li>
+            <li>
+                <strong>Jr Penetration Tester (PT1)</strong> — TryHackMe
+                <span class="date">2025</span>
+            </li>
+            <li>
+                <strong>Контейнеризация с Docker, Yandex Managed Service for Kubernetes</strong> — Yandex Cloud
+                <span class="date">2025</span>
+            </li>
+        </ul>
+
+        <!-- LANGUAGES & SOFT SKILLS -->
+        <h2>More</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+            <div>
+                <h4>Languages</h4>
+                <ul style="list-style: none;">
+                    <li>🇷🇺 Russian (native)</li>
+                    <li>🇬🇧 English (B2)</li>
+                    <li>🇨🇳 Chinese (A2)</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Soft skills</h4>
+                <p>Psychological resilience, adaptability, analytical thinking, communication, motivation.</p>
+            </div>
+        </div>
+
+        <!-- BLOG / LATEST !TODO -->
+        <h2>Latest from the blog</h2>
+        <p style="margin: 1rem 0;">🚧 Coming soon — write‑ups on Bug Bounty findings, CTF solutions, and deep dives into my projects.</p>
+        <p><em>Check back later or follow me on GitHub for updates.</em></p>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>© 2026 Tokyo09.<br>
+            This site is open source — you can build your own from the template.</p>
+        </div>
+    </div>
+</body>
+</html>
