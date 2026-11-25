@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f0">
+  <meta name="description" content="A workshop needs to know whether a visitor is old enough to enter. How much does the visitor actually need to reveal?">
+  <title>Proving your age without sharing your birthday · Tokyo09</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../" aria-label="Tokyo09 home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>TOKYO09
+      </a>
+      <nav aria-label="Site">
+        <a href="../../">Home</a>
+        <a class="current" href="../">Journal</a>
+        <a href="https://github.com/Tokyo-09">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="main">
+
+    <article class="article">
+      <a class="back" href="../">← All field notes</a>
+      <header class="article-head">
+        <p class="overline"><span class="signal" aria-hidden="true"></span>Applied cryptography</p>
+        <h1>Proving your age without sharing your birthday</h1><p class="summary">A workshop needs to know whether a visitor is old enough to enter. How much does the visitor actually need to reveal?</p>
+        <p class="date">Tokyo09 &nbsp; / &nbsp; <time datetime="2026-11-25">25 Nov 2026</time></p>
+      </header>
+      <div class="prose">
+
+        <p>A makerspace reserves its evening workshop for adults. At the door, a volunteer checking a photo ID can see each visitor’s full name and birthday. The admission rule asks a narrower question. Has this person turned 18?</p>
+        <h2>Draw the boundary</h2>
+        <p>Suppose the workshop runs on 25 November 2026. Someone born on 25 November 2008 qualifies that day. Someone born the following day has to wait. The reader can apply the rule with one comparison. The date on the credential must fall on or before 25 November 2008.</p>
+        <h2>What crosses the counter</h2>
+        <p>Imagine a digital credential whose issuer has checked the original birth record. The issuer signs a date encoded in a form the wallet can compare with the cutoff. At the door, the reader sends the cutoff and a fresh random challenge. The wallet prepares a zero-knowledge proof that the signed date satisfies the comparison and binds that proof to the challenge.</p>
+        <p>The reader checks the proof using the trusted issuer’s public information. It learns that the visitor meets the threshold. The birth date stays in the wallet. A saved response from yesterday’s visit will fail against today’s fresh challenge.</p>
+        <p>The venue still depends on the issuer to check the birth record accurately. And if the booking desk asks for an email address, that address can still tie a named account to a visit. Choosing which fields to collect at the desk matters just as much as choosing which fields to reveal at the door.</p>
+        <p class="source">For a concrete credential system with predicate proofs, see the <a href="https://anoncreds.github.io/anoncreds-spec/">AnonCreds specification</a>.</p>
+
+      </div>
+      <footer class="post-foot">
+        <p class="overline">Another field note</p>
+        <a class="related" href="../file-hashes/">What a file hash can tell you <span aria-hidden="true">→</span></a>
+      </footer>
+    </article>
+  </main>
+  <footer class="site-foot"><div class="wrap">
+    <p>© 2026 Tokyo09</p><a href="../../">Back to home <span aria-hidden="true">↗</span></a>
+  </div></footer>
+</body>
+</html>

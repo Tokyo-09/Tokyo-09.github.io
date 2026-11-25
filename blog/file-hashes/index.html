@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f0">
+  <meta name="description" content="Two text files look identical in an editor. SpireAV gives them different fingerprints. The difference comes down to one byte.">
+  <title>What a file hash can tell you · Tokyo09</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="brand" href="../../" aria-label="Tokyo09 home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>TOKYO09
+      </a>
+      <nav aria-label="Site">
+        <a href="../../">Home</a>
+        <a class="current" href="../">Journal</a>
+        <a href="https://github.com/Tokyo-09">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="main">
+
+    <article class="article">
+      <a class="back" href="../">← All field notes</a>
+      <header class="article-head">
+        <p class="overline"><span class="signal" aria-hidden="true"></span>File analysis</p>
+        <h1>What a file hash can tell you</h1><p class="summary">Two text files look identical in an editor. SpireAV gives them different fingerprints. The difference comes down to one byte.</p>
+        <p class="date">Tokyo09 &nbsp; / &nbsp; <time datetime="2026-11-25">25 Nov 2026</time></p>
+      </header>
+      <div class="prose">
+
+        <p>Open two plain-text files. Each contains the word <code>hello</code> followed by a single line break. Put the cursors at the ends of the files and both land on an empty second line. Where does the extra byte come from?</p>
+        <h2>One line break, two fingerprints</h2>
+        <p>Save both files as UTF-8 without a byte-order mark. Give the first a Unix line ending (LF) and the second a Windows line ending (CRLF). The second file uses two bytes to signal the end of the line. Here are the first eight hexadecimal characters of each SHA-256 digest.</p>
+        <div class="specimen">
+          <table aria-label="SHA-256 prefixes for hello with two different line endings">
+            <thead><tr><th scope="col">Ending</th><th scope="col">Size</th><th scope="col">SHA-256 prefix</th></tr></thead>
+            <tbody><tr><th scope="row">LF</th><td>6 bytes</td><td>5891b5b5</td></tr>
+              <tr><th scope="row">CRLF</th><td>7 bytes</td><td>cd2eca35</td></tr></tbody>
+          </table>
+        </div>
+        <p>SpireAV’s hashing module reads a file in blocks of 8,192 bytes and feeds each block to both MD5 and SHA-256. The filename never enters that calculation. If two scan reports use different filenames, comparing the full SHA-256 values can help you identify copies with the same contents.</p>
+        <h2>What a rule adds</h2>
+        <p>SpireAV also supports YARA rules, which describe patterns to look for in files. Imagine a rule whose only condition is the presence of the bytes for <code>hello</code>. Both files would match. In this example the match tells you that each file contains a greeting. The hashes let you tell the two copies apart.</p>
+        <p class="source">Read the <a href="https://github.com/Tokyo-09/SpireAV-OSS/blob/1909a6ca2e879545b3fb130d4ecf36adeb7514d7/av_core/src/core/hashes.rs">SpireAV hashing module</a> and the <a href="https://github.com/Tokyo-09/SpireAV-OSS/blob/1909a6ca2e879545b3fb130d4ecf36adeb7514d7/README.md">project README</a>.</p>
+
+      </div>
+      <footer class="post-foot">
+        <p class="overline">Another field note</p>
+        <a class="related" href="../age-proof/">Proving your age without sharing your birthday <span aria-hidden="true">→</span></a>
+      </footer>
+    </article>
+  </main>
+  <footer class="site-foot"><div class="wrap">
+    <p>© 2026 Tokyo09</p><a href="../../">Back to home <span aria-hidden="true">↗</span></a>
+  </div></footer>
+</body>
+</html>
